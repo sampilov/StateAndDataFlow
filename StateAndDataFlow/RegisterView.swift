@@ -18,6 +18,14 @@ struct RegisterView: View {
         }
     }
     
+    private var isButtonDisabled: Bool {
+        if name.count < 3 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -33,6 +41,7 @@ struct RegisterView: View {
                     Text("OK")
                 }
             }
+            .disabled(isButtonDisabled)
         }
     }
     

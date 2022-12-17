@@ -22,7 +22,10 @@ struct ContentView: View {
                 .padding(.top, 100)
             Spacer()
             
-            ButtonView(timer: timer)
+            ButtonView(timer: timer, color: .red)
+            Spacer()
+            ButtonView(timer: timer, color: .blue)
+            
             
             Spacer()
         }
@@ -38,6 +41,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ButtonView: View {
    @ObservedObject var timer: TimeCounter
+    let color: Color
     
     var body: some View {
         Button(action: timer.startTimer) {
@@ -47,7 +51,7 @@ struct ButtonView: View {
                 .foregroundColor(.white)
         }
         .frame(width: 200, height: 60)
-        .background(.red)
+        .background(color)
         .cornerRadius(20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
